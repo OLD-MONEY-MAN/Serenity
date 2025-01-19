@@ -30,7 +30,7 @@ header nav {
 
 
 }
-.png {
+.header__nav__icon {
     display: flex;   
     width: 48px;
     height: 48px;
@@ -38,7 +38,7 @@ header nav {
     margin-left: 40px;
     position: static;
 }
-.menu {
+.header__nav__menu {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
@@ -49,7 +49,7 @@ header nav {
     margin-left: 399px;
     
 }
-.hmenu {
+.header__nav__menu__item {
     font-family:"Montserrat Alternates";
     font-size:20px;
     color: #FDFFF5;
@@ -57,7 +57,7 @@ header nav {
 
     
 
-.dropd {
+.select {
     display: inline-block;
     margin: 40px 0px 0px 80px;
     position: relative;
@@ -90,14 +90,14 @@ header nav {
     background: url("../image/Frame\ 143.png") ;
     margin: 32px 0px 0px 80px;
 }
-.banner2 {
+.content {
     display: flex;
     border: 1px solid green;
     height: 762px;
     width: 1352px;
     margin: 200px 0px 0px 80px;
 }
-.ass1{
+.banner__content{
     display: inline-block;
     height: 308px;
     width: 308px;
