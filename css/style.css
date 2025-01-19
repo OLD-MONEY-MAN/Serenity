@@ -87,8 +87,48 @@ header nav {
     border: 1px solid red;
     height: 633px;
     width: 1352px;
-    background: url("../image/Frame\ 143.png") ;
-    margin: 32px 0px 0px 80px;
+    background: url("../image/frame111.jpg") no-repeat center/cover ;
+    left: 80px ;
+    margin: 32px 0 0 0 ;
+    border-radius: 40px 40px;
+    position: relative;
+}
+.banner::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px 40px;
+    background: rgba(0, 0, 0, 0.5);
+}  
+.banner .text{
+    background: none;
+    color: #FDFFF5;
+    font-size: 21px;
+    font-family: "Montserrat Alternates";
+    line-height: 27.3px;
+    position: absolute;
+    bottom: 87px;
+    right: 24px;
+    text-align: right;
+    z-index: 1;
+}
+.banner .post{
+    background: none;
+    border: 1px solid #FDFFF5;
+    height: 47px;
+    width: 400px;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    border-radius: 15px 15px;
+    font-size: 26px;
+    font-family: "Montserrat Alternates";
+    justify-content: center;
+    color: #FDFFF5;
+    z-index: 1;
 }
 .content {
     display: flex;
@@ -97,15 +137,26 @@ header nav {
     width: 1352px;
     margin: 200px 0px 0px 80px;
 }
+.popular{
+    height: 82px;
+    width: 1352px;
+    font-family: "Lighthaus";
+    color: #0D3023;
+    font-size: 64px;
+    line-height: 82.5px;
+
+
+}
 .banner__content{
-    display: inline-block;
+    display: block;
     height: 308px;
     width: 308px;
     background: url("../image/Frame\ 145.png");
     position: relative;
+    border: 1px solid red
 
-}
-.ass11{
+}*/
+.button{
     display: flex;
     box-sizing: border-box;
     width: 100%;
@@ -118,6 +169,7 @@ header nav {
     border-radius: 100px ;
     position: absolute;
 }
+
 
 
 
