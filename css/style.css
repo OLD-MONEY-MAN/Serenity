@@ -14,166 +14,266 @@ body {
     margin: 0 auto;
     /*color: #FDFFF5;*/
 }
-header {
+
+/*не используй написание стилей на конкретные теги даже если они такие уникальные как хедер. а особенно со вложенностью это может в последствии породить херову гору багов и ты не будешь понимать адекватно откуда эти стили пришли*/
+.header {
     border: 1px solid;
-    
+    display: flex;
+    justify-content: center;
 }
-header nav {
+
+.header__nav {
     display: flex;
     /*justify-content: center;*/
-    height: 80px;
+    align-items: center;
     width: 1352px;
-    margin: 40px 80px 0px 80px;
-    /*padding: 40px auto;*/
+    margin-top: 40px;
     background-color: #0D3023;
     border-radius: 40px 40px;
-
-
+    padding: 16px 40px;
 }
-.header__nav__icon {
-    display: flex;   
+
+.header__icon {
+    display: flex;
     width: 48px;
     height: 48px;
-    margin-top: 16px;
-    margin-left: 40px;
     position: static;
 }
-.header__nav__menu {
+
+.header__nav_menu {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
     list-style-type: none;
-    width: 377px;
     height: 30px;
-    padding-inline-start: 0px;
-    margin-top: 26px;
-    margin-left: 399px;
-    
+    padding-inline-start: 0;
 }
-.header__nav__menu__item {
-    font-family:"Montserrat Alternates";
+
+/*БЭМ предполагает под собой только блок__элемент_модификатор дополнительных нижних подчеркиваний не надо. при чем между блоком и элементом два нижних подчеркивания а между элементом и модификатором подразумевается одно нижнее подчеркиваениек*/
+.header__nav_menuItem {
+    font-family:"Montserrat Alternates", sans-serif;
     font-size:20px;
     color: #FDFFF5;
 }
 
-    
+/*
+Еще ты не до конца понимаешь суть БЭМ и мне лень тут это править самому. но блок это блок. элемент блока это элемент а модификатор может лишь изменять незначительные части этого элемента. Например
+у тебя есть меню окей это .menu в меню есть кнопка окей это .menu__btn и в меню есть кнопка точно такая же как и все остальные но почему то черного цвета а не синего вот это будет модификатор .menu__btn_blackEdition
+но если внутри кнопки есть иконка то это будет .menu__btnIcon*/
+
+.contentWrapper {
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleSection {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
 
 .select {
-    display: inline-block;
-    margin: 40px 0px 0px 80px;
-    position: relative;
-    bottom: 88px;
-    width: 125px;
+    /*width: 125px;*/
     height: 29px;
     border: none; /* Убираем рамку */
     outline: none; /* Убираем обводку при фокусировке */
     background-color: transparent;
     font-size: 24px;
-    font-family: "Montserrat Alternates";
+    font-family: "Montserrat Alternates", sans-serif;
     color: #0D3023;
+    margin-right: auto;
 }
+
 .name {
-    
-    display: inline-block;
+    display: flex;
     justify-content: center;
+    padding-right: 269px;
+    width: 100%;
     font-size: 128px;
-    width: 656px;
     height: 141px;
-    margin: 24px 0px 0px 223px;
     color: #0D3023;
-    font-family: "Lighthaus";
+    font-family: "Lighthaus", sans-serif;
 }
+
 .banner {
     display: flex;
     border: 1px solid red;
     height: 633px;
     width: 1352px;
     background: url("../image/frame111.jpg") no-repeat center/cover ;
-    left: 80px ;
-    margin: 32px 0 0 0 ;
+    margin-top: 32px;
     border-radius: 40px 40px;
     position: relative;
+    /*filter: brightness(50%);*/
 }
-.banner::after{
+.banner::after {
     content: '';
     position: absolute;
+    border-radius: 40px 40px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 40px 40px;
-    background: rgba(0, 0, 0, 0.5);
-}  
-.banner .text{
-    background: none;
-    color: #FDFFF5;
-    font-size: 21px;
-    font-family: "Montserrat Alternates";
-    line-height: 27.3px;
+    background-color: rgba(0, 0, 0, 0.6); /* Черный цвет с прозрачностью */
+    pointer-events: none;
+}
+.banner__content {
     position: absolute;
-    bottom: 87px;
+    bottom: 24px;
     right: 24px;
-    text-align: right;
     z-index: 1;
 }
-.banner .post{
+
+.banner__contentText {
+    color: #FDFFF5;
+    font-size: 21px;
+    font-family: "Montserrat Alternates", sans-serif;
+    line-height: 27px;
+    text-align: right;
+}
+
+.banner__contentPost {
+    margin-top: 16px;
     background: none;
     border: 1px solid #FDFFF5;
     height: 47px;
     width: 400px;
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
     border-radius: 15px 15px;
     font-size: 26px;
-    font-family: "Montserrat Alternates";
+    font-family: "Montserrat Alternates", sans-serif;
     justify-content: center;
     color: #FDFFF5;
-    z-index: 1;
 }
-.content {
+.banner__contentPost:hover {
+    background: linear-gradient(to top, #0D3023, #B9c6BD);
+    color: #0D3023;
+    cursor: pointer;
+    border: none;
+
+}
+
+.popular {
     display: flex;
-    border: 1px solid green;
     height: 762px;
     width: 1352px;
-    margin: 200px 0px 0px 80px;
+    margin-top: 200px;
+    position: relative;
+    flex-wrap: wrap;
+
+
 }
-.popular{
+
+.popular__name {
     height: 82px;
-    width: 1352px;
-    font-family: "Lighthaus";
+    font-family: "Lighthaus", sans-serif;
     color: #0D3023;
     font-size: 64px;
-    line-height: 82.5px;
-
+    line-height: 82px;
+    width: 100%;
 
 }
-.banner__content{
-    display: block;
+.popular__content{
+    display: flex;
+    height: 640px;
+    width: 1352px;
+    position: relative;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    column-gap: 40px;
+    row-gap: 24px;
+
+}
+.popular__content__miniCard__Shiacu{
+    display: flex;
     height: 308px;
     width: 308px;
-    background: url("../image/Frame\ 145.png");
     position: relative;
-    border: 1px solid red
+    background: url("../image/Shiacu.png") no-repeat center/cover ;
 
-}*/
-.button{
+
+.popular__content__bigCard__Avocado{
     display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    border: 1px solid #0D3023;
-    padding: 5px;
-    height: 48px;
-    width: 48px;
-    bottom: 14px;
-    right: 14px;
-    border-radius: 100px ;
-    position: absolute;
+    height: 308px;
+    width: 656px;
+    position: relative;
+    border-radius: 30px 30px;
+    background: url("../image/photo_2025-01-19_23-17-01.jpg") no-repeat center/cover ;
+    border: 1px #0D3023 solid;
+
 }
+.popular__content__miniCard__Spa{
+    display: flex;
+    height: 308px;
+    width: 308px;
+    position: relative;
+    background: url("../image/Spa (2).png") no-repeat center/cover ;
 
+}
+.popular__content__miniCard__Yoga{
+    display: flex;
+    height: 308px;
+    width: 308px;
+    position: relative;
+    background: url("../image/photo_2025-01-19_23-16-59 (2).jpg") no-repeat center/cover ;
+    border-radius: 30px 30px;
+}
+.popular__content__miniCard__Uhod {
+    display: flex;
+    height: 308px;
+    width: 308px;
+    position: relative;
+    background: url("../image/uhod.png") no-repeat center/cover ;
+}
+.popular__content__bigCard__Vetka {
+    display: flex;
+    height: 308px;
+    width: 656px;
+    position: relative;
+    border-radius: 30px 30px;
+    background: url("../image/photo_2025-01-21_08-21-48.jpg") no-repeat center/cover ;
+}
+.button {
+       display: flex;
+       box-sizing: border-box;
+       border: 1px solid #0D3023;
+       padding: 5px;
+       height: 48px;
+       width: 48px;
+       bottom: 14px;
+       right: 14px;
+       border-radius: 100px;
+       position: absolute;
+   }
+.promotions {
+    display: flex;
+    height: 592px;
+    width: 1352px;
+    margin-top: 200px;
+    position: relative;
+    row-gap: 40px;
+    flex-wrap: wrap;
 
-
-
-
+}
+.promotions__name {
+    height: 82px;
+    font-family: "Lighthaus", sans-serif;
+    color: #0D3023;
+    font-size: 64px;
+    line-height: 82px;
+    width: 100%;
+}
+.promotions__content {
+    display: flex;
+    height: 470px;
+    width: 1352px;
+    position: relative;
+    background: url("../image/Promo.png") no-repeat center/cover ;
+}
 
 
 .content {
